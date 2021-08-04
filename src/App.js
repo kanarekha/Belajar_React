@@ -3,9 +3,9 @@ import './App.css';
 
 function App() {
   return (
-    <div class="Parentbox">
+    <div className="Parentbox">
       <FotoProduk />
-      <ProdukInfo />
+      <ProdukInfo category="SNEAKERS" name="Vans Old School" />
       
     </div>
   );
@@ -19,20 +19,25 @@ function FotoProduk() {
   );
 }
 
-function ProdukInfo() {
-  const category = "Summer"
+function ProdukInfo(props) {
+  const { category , name} = props;
   return (
-    <div class="Deskripsi">
-        <p class="Cate">vans</p>
-        <h1 class="Title">PRIMARY CHECK OLD SKOOL</h1>
-        <p class="Price">IDR 9.000.000</p>
-        <p class="Info">First known as the Vans #36, the Old Skool debuted in 1977 with a unique new addition: 
+    <div className="Deskripsi">
+        <p className="Cate">{category}</p>
+        <h1 className="Title">{name}</h1>
+        <p className="Price">IDR 9.000.000</p>
+        <p className="Info">First known as the Vans #36, the Old Skool debuted in 1977 with a unique new addition: 
         a random doodle drawn by founder Paul Van Doren, and originally referred to as 
         the “jazz stripe.” Today, the famous Vans Sidestripe has become 
         the unmistakable—and instantly recognizable—hallmark of the Vans brand.
         </p>
+        <a onClick={(e) => TambahCart(name, e)} href="#">Add to Cart</a>
       </div>
   );
+}
+
+function TambahCart(e) {
+    return  console.log("Membeli " + e);
 }
 
 
